@@ -1,7 +1,9 @@
+import Body from "./components/body";
+
 function App() {
   return (
-    <div className="bg-red-500">
-      Hey! netflix gpt
+    <div>
+      <Body />
     </div>
   );
 }

@@ -18,3 +18,6 @@
 - NetflixGPT
   - Search Bar
   - Movie suggestion based on search
+
+ ##  Use Formik libarry for validations if you have many fields in you application
+  - https://formik.org/docs/overview
