@@ -21,3 +21,12 @@
 
  ##  Use Formik libarry for validations if you have many fields in you application
   - https://formik.org/docs/overview
+
+# Firebase [https://console.firebase.google.com/]
+- To deploy to firebase 
+  - firebase login
+  - firebase init
+  - firebase deploy
+
+  # Hosted URL
+   - [https://netflixgpt-3743a.web.app]
