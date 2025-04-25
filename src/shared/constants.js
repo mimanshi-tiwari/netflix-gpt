@@ -6,6 +6,8 @@ export const LOGIN_BACKDROP = "https://assets.nflxext.com/ffe/siteui/vlv3/69bec1
 
 export const YT_VIDEO_URL = "https://www.youtube.com/embed/{{VIDEO_KEY}}"
 
+export const TBDB_IMG_URL = "https://image.tmdb.org/t/p/"
+
 export const API_OPTIONS = {
     headers: {
       accept: 'application/json',
@@ -18,4 +20,11 @@ export const API_OPTIONS = {
     POST: 'POST',
     PATCH: 'PATCH',
     DELETE: 'DELETE',
+  }
+
+  export const THEME = {
+    NOW_PLAYING: 'now_playing',
+    POPULAR: 'popular',
+    TOP_RATED: 'top_rated',
+    UPCOMING: 'upcoming',
   }

@@ -1,5 +1,22 @@
-const SuggestionsWrapper = () => {
-    return <div> suggestions list</div>
-}
+import { useSelector } from "react-redux";
+import MovieList from "./movie-list";
+import { titleCase } from "../../shared/utils";
 
-export default SuggestionsWrapper
+const SuggestionsWrapper = () => {
+  const movies = useSelector((store) => store.movies.movies);
+  return (
+    <div className="bg-black">
+      <div className="p-4 -mt-64 text-white">
+        {Object.keys(movies).map((theme, index) => (
+          <MovieList
+            title={titleCase(Object.keys(movies)[index])}
+            movies={movies[theme]}
+            key={titleCase(Object.keys(movies)[index])}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default SuggestionsWrapper;
