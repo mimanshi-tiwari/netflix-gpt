@@ -9,17 +9,16 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../firebase/firebase";
-import { useNavigate } from "react-router-dom";
 import { CircleCheck, CircleX } from "lucide-react";
 import { addUser } from "../slice/userSlice";
 import { useDispatch } from "react-redux";
+import { LOGIN_BACKDROP, PROFILE_IMG } from "../shared/constants";
 
 const Login = () => {
   const [isSignIn, setIsSignIn] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
   const [password, setPassword] = useState("");
   const [isValidPassword, setIsValidPassword] = useState(null);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const email = useRef(null);
   const name = useRef(null);
@@ -62,7 +61,6 @@ const Login = () => {
           // Signed in
           const { uid, email, displayName, photoURL } = userCredential.user;
           dispatch(addUser({ uid, email, displayName, photoURL }));
-          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -76,12 +74,11 @@ const Login = () => {
           // Signed up
           updateProfile(userCredential.user, {
             displayName: name.current.value,
-            photoURL:
-              "https://occ-0-2483-3646.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABXz4LMjJFidX8MxhZ6qro8PBTjmHbxlaLAbk45W1DXbKsAIOwyHQPiMAuUnF1G24CLi7InJHK4Ge4jkXul1xIW49Dr5S7fc.png?r=e6e",
+            photoURL: PROFILE_IMG,
           })
             .then(() => {
               // Profile updated!
-              const { uid, email,displayName,  photoURL } = auth.currentUser;
+              const { uid, email, displayName, photoURL } = auth.currentUser;
               dispatch(
                 addUser({
                   uid,
@@ -90,7 +87,6 @@ const Login = () => {
                   photoURL,
                 })
               );
-              navigate("/browse");
             })
             .catch((error) => {
               // An error occurred
@@ -109,10 +105,7 @@ const Login = () => {
   return (
     <div className="relative">
       <Header />
-      <img
-        alt="backdrop-image"
-        src="https://assets.nflxext.com/ffe/siteui/vlv3/69bec183-9cc8-49d4-8fc2-08228d3c91b4/web/IN-en-20250414-TRIFECTA-perspective_c8273fb1-8860-4ff5-bd1c-c2c4b44d5f2a_large.jpg"
-      />
+      <img alt="backdrop-image" src={LOGIN_BACKDROP} />
       <form
         onSubmit={(e) => e.preventDefault()}
         className="flex flex-col gap-4 w-3/12 absolute top-[30%] left-[35%] p-6 bg-black text-white rounded bg-opacity-80"
