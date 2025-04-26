@@ -8,10 +8,12 @@ export const YT_VIDEO_URL = "https://www.youtube.com/embed/{{VIDEO_KEY}}"
 
 export const TBDB_IMG_URL = "https://image.tmdb.org/t/p/"
 
+export const OPENAI_KEY = process.env.REACT_APP_OPENAI_KEY
+
 export const API_OPTIONS = {
     headers: {
       accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1YmU4NTZjN2Q0NDBhYjQ4NzlkYmY5MmY3ZWM2NjI5MyIsIm5iZiI6MTc0NTQ4NDQyOC45MDUsInN1YiI6IjY4MDlmYThjOGJjZWE2NmE4NmFhOTI1MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ._uL-CkSjQogoJCN-FY9-rU_oPczjA3DRjXI5mPsBDy0'
+      Authorization: 'Bearer' + process.env.REACT_APP_TBDB_KEY
     }
   };
 
@@ -27,4 +29,5 @@ export const API_OPTIONS = {
     POPULAR: 'popular',
     TOP_RATED: 'top_rated',
     UPCOMING: 'upcoming',
+    GPT_SUGGESTIONS: 'gpt_suggestions',
   }

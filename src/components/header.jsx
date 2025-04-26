@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser,removeUser } from "../slice/userSlice";
 import { NETFLIX_LOGO } from "../shared/constants";
+import { toggleGPTSearch } from "../slice/gptSlice";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -42,7 +43,7 @@ const Header = () => {
   };
 
   return (
-    <div className="absolute h-[68px] w-full flex justify-between gap items-center gap-8 px-2 py-1 bg-gradient-to-b from-black">
+    <div className="absolute h-[68px] w-full flex justify-between gap items-center gap-8 px-2 py-1 bg-gradient-to-b from-black z-50">
       <img className="h-full" alt="netflix-logo" src={NETFLIX_LOGO} />
       {user && (
         <>
@@ -55,7 +56,9 @@ const Header = () => {
           {showUserMenu && (
             <div className="absolute right-5 top-[54px] flex bg-black text-white p-2 rounded">
               <ul className="flex flex-col items-start gap-2">
-                <li className="p-2 border-b w-full">{user?.displayName}</li>
+                <li className="px-2 w-full">{user?.displayName}</li>
+                <li className="px-2 w-full cursor-pointer" onClick={() => dispatch(toggleGPTSearch(false))}>Home</li>
+                <li className="px-2 pb-2 border-b w-full cursor-pointer" onClick={() => dispatch(toggleGPTSearch(true))}>GPT Search</li>
                 <li
                   className="w-full p-2 pt-0 cursor-pointer"
                   onClick={handleSignOut}

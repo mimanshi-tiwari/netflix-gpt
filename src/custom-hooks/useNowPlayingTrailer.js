@@ -2,13 +2,16 @@ import { useEffect } from "react";
 import { NOW_PLAYING_TRAILER } from "../shared/api-endpoints";
 import { API_METHOD, API_OPTIONS } from "../shared/constants";
 import { addNowPlayingTrailer } from "../slice/moviesSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const useNowPlayingTrailer = (movieId) => {
   const dispatch = useDispatch();
+  const nowPlayingTrailer = useSelector(
+    (store) => store.movies.nowPlayingTrailer
+  );
 
   useEffect(() => {
-    getNowPlayingTrailer(movieId);
+    if (!nowPlayingTrailer?.length) getNowPlayingTrailer(movieId);
   }, [movieId]);
 
   const getNowPlayingTrailer = async (movieId) => {

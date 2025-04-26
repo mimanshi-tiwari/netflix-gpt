@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^13.5.0",
     "firebase": "^11.6.0",
     "lucide-react": "^0.503.0",
+    "openai": "^4.96.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-redux": "^9.2.0",
