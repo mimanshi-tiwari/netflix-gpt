@@ -4,6 +4,9 @@ import { titleCase } from "../../shared/utils";
 
 const SuggestionsWrapper = () => {
   const movies = useSelector((store) => store.movies.movies);
+
+  if (!Object.keys(movies || {}).length) return null
+
   return (
     <div className="bg-black">
       <div className="p-4 -mt-64 text-white">

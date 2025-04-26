@@ -13,7 +13,7 @@ export const OPENAI_KEY = process.env.REACT_APP_OPENAI_KEY
 export const API_OPTIONS = {
     headers: {
       accept: 'application/json',
-      Authorization: 'Bearer' + process.env.REACT_APP_TBDB_KEY
+      Authorization: 'Bearer ' + process.env.REACT_APP_TBDB_KEY
     }
   };
 
@@ -30,4 +30,5 @@ export const API_OPTIONS = {
     TOP_RATED: 'top_rated',
     UPCOMING: 'upcoming',
     GPT_SUGGESTIONS: 'gpt_suggestions',
+    SIMILAR: 'similar',
   }

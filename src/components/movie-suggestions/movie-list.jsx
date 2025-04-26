@@ -1,6 +1,7 @@
-import MovieCard from "./moview-card";
+import MovieCard from "./movie-card";
 
 const MovieList = ({ title, movies }) => {
+  if (!movies?.length) return null
   return (
     <div className="py-4">
       <div className="text-2xl font-semibold pb-2">{title}</div>

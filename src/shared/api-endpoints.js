@@ -2,3 +2,5 @@ export const GET_NOW_PLAYING = 'https://api.themoviedb.org/3/movie/now_playing?&
 export const NOW_PLAYING_TRAILER = 'https://api.themoviedb.org/3/movie/{{MOVIE_ID}}/videos'
 export const GET_MOVIES = 'https://api.themoviedb.org/3/movie/{{THEME}}?&page=1'
 export const SEARCH_MOVIE = 'https://api.themoviedb.org/3/search/movie?query={{MOVIE_NAME}}&include_adult=false&&page=1'
+export const MOVIE_DETAILS = 'https://api.themoviedb.org/3/movie/{{MOVIE_ID}}'
+export const SIMILAR_MOVIES = 'https://api.themoviedb.org/3/movie/{{MOVIE_ID}}/{{THEME}}?&page=1'
